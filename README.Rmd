@@ -1,11 +1,9 @@
-# 
+# notifier
 
-The goal of  is to ...
+Package sends email notifications from a sheet (local csv, Excel, or Googlesheet) that contains, at the very least a name and email a ddress. A message can be formatted using nice templates using the `glue` package.
 
-## Example
+## Functionality
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-## basic example code
-```
+- `note_create(tbl_df, template)` - Creates a template of the messages that need to be sent.
+- `note_preview()` - will preview the emails
+- `note_send()` - Send the emails
