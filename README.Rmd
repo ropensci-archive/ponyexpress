@@ -36,13 +36,20 @@ __2. Template up__
   
 ```{r}
 library(ponyexpress)
-   template <- "Dear {name},
+ emplate <- "Dear {name},
 
    This is a friendly email from me.
 
+  XO,
+   Lucy"
+`
+rich_template <- "Dear {name},
+
+   This is a friendly email from me.
+  \\<img src='http://bukk.it/wut.jpg'\\>
    XO,
    Lucy"
-```
+``
 
 __3. Parcel & Preview__
 
@@ -52,7 +59,7 @@ __3. Parcel & Preview__
               sender_name = "Lucy",
               sender_email = "lucydagostino@gmail.com",
               subject = "Happy email!",
-              template = template)
+              template = template2
 
  parcel_preview(parcel)            
 ```
