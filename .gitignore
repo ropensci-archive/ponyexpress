@@ -6,3 +6,4 @@ inst/doc
 *.json
 *.RDS
 .httr-oauth
+sandbox
