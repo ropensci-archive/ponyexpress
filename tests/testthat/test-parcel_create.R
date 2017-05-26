@@ -1,6 +1,6 @@
-context("note_create")
+context("parcel_create")
 
-test_that("note_create behaves", {
+test_that("parcel_create behaves", {
   df <- data.frame(
     name = c("Lucy", "Karthik"),
     email = c("example@email.com", "example@email.com")
@@ -13,11 +13,11 @@ test_that("note_create behaves", {
    XO,
    Lucy"
 
-  note <- note_create(df,
+  parcel <- parcel_create(df,
               sender_name = "Lucy",
               sender_email = "lucydagostino@gmail.com",
               subject = "Happy email!",
               template = template)
-  expect_is(note, "data.frame")
-  expect_identical(names(note), c("To","From","Subject","body"))
+  expect_is(parcel, "data.frame")
+  expect_identical(names(parcel), c("To","From","Subject","body"))
 })

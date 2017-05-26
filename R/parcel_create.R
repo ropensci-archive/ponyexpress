@@ -1,4 +1,4 @@
-#' Create a note to email
+#' Create a parcel to email
 #'
 #' @param df data frame, information to be fed to the template (required)
 #' @param sender_name character, the sender's name (required)
@@ -23,14 +23,14 @@
 #' XO,
 #' Lucy"
 #'
-#' note_create(df,
+#' parcel_create(df,
 #'             sender_name = "Lucy",
 #'             sender_email = "lucydagostino@gmail.com",
 #'             subject = "Happy email!",
 #'             template = template)
 #'
 #' @export
-note_create <- function(df,
+parcel_create <- function(df,
                         sender_name = NULL,
                         sender_email = NULL,
                         subject = NULL,
@@ -45,6 +45,7 @@ note_create <- function(df,
   email$From <- glue::glue("{sender_name} <{sender_email}>")
   email$Subject <- subject
   email$body <- glue::glue_data(df, template)
-  email[, names(email) %in% c("To", "Bcc", "From", "Subject", "body")]
+  email <- email[, names(email) %in% c("To", "Bcc", "From", "Subject", "body")]
+  structure(email, class = c("parcel", "data.frame"))
 }
 
