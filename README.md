@@ -6,6 +6,11 @@ ponyexpress 🐴
 
 This package builds on the `gmailr` package and code from Jenny Bryan to automate sendining Gmail from R with data from a spreadsheet (local csv, Excel sheet, or a Google sheet). With nothing more than a list of names and email addresses, you can send templated emails (grades, conference acceptances etc)
 
+Install
+-------
+
+`{r}, eval = FALSE # Obtain the the development version from GitHub: # install.packages("devtools") devtools::install_github("ropenscilabs/ponyexpress")`
+
 Functionality
 -------------
 
@@ -36,7 +41,7 @@ Example
 
 ``` r
 library(ponyexpress)
- emplate <- "Dear {name},
+template <- "Dear {name},
 
    This is a friendly email from me.
 
@@ -51,19 +56,25 @@ rich_template <- "Dear {name},
   \\<img src='http://bukk.it/wut.jpg'>
    XO,
    Lucy"
+ 
+ # Or use one of our templates!
+body <- "Dear {name},
+
+   This is a friendly email from me.
+  \\<img src='http://bukk.it/wut.jpg'>
+   XO,
+   Lucy"
+our_template <- glue::glue(glitter_template)
 ```
 
 **3. Parcel & Preview**
 
-``` r
-  parcel <- parcel_create(df,
-              sender_name = "Lucy",
-              sender_email = "lucydagostino@gmail.com",
-              subject = "Happy email!",
-              template = rich_template)
+\`\`\`{r}, eval = FALSE
 
- parcel_preview(parcel)            
-```
+parcel &lt;- parcel\_create(df, sender\_name = "Lucy", sender\_email = <%22lucydagostino@gmail.com%22>, subject = "Happy email!", template = rich\_template)
+
+parcel\_preview(parcel)
+\`\`\`
 
 **4. Send**
 
