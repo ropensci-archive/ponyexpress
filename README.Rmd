@@ -42,16 +42,20 @@ library(ponyexpress)
 
   XO,
    Lucy"
-`
+
+ # Or write a rich template!
+
 rich_template <- "Dear {name},
 
    This is a friendly email from me.
-  \\<img src='http://bukk.it/wut.jpg'\\>
+  \\<img src='http://bukk.it/wut.jpg'>
    XO,
    Lucy"
-``
+ 
+```
 
 __3. Parcel & Preview__
+
 
 ```{r}
 
@@ -59,7 +63,7 @@ __3. Parcel & Preview__
               sender_name = "Lucy",
               sender_email = "lucydagostino@gmail.com",
               subject = "Happy email!",
-              template = template2
+              template = rich_template)
 
  parcel_preview(parcel)            
 ```

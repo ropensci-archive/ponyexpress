@@ -36,10 +36,19 @@ Example
 
 ``` r
 library(ponyexpress)
-   template <- "Dear {name},
+ emplate <- "Dear {name},
 
    This is a friendly email from me.
 
+  XO,
+   Lucy"
+
+ # Or write a rich template!
+
+rich_template <- "Dear {name},
+
+   This is a friendly email from me.
+  \\<img src='http://bukk.it/wut.jpg'>
    XO,
    Lucy"
 ```
@@ -51,7 +60,7 @@ library(ponyexpress)
               sender_name = "Lucy",
               sender_email = "lucydagostino@gmail.com",
               subject = "Happy email!",
-              template = template)
+              template = rich_template)
 
  parcel_preview(parcel)            
 ```
