@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/ropenscilabs/notifier/master.svg)](https://codecov.io/github/ropenscilabs/notifier?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/ropenscilabs/ponyexpress/master.svg)](https://codecov.io/github/ropenscilabs/ponyexpress?branch=master)
 
 # ponyexpress 🐴
 
@@ -10,7 +10,7 @@ This package builds on the `gmailr` package and code from Jenny Bryan to automat
 
 ## Install
 
-```{r}, eval = FALSE
+```{r, eval = FALSE}
 # Obtain the the development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("ropenscilabs/ponyexpress")
@@ -73,7 +73,7 @@ our_template <- glue::glue(glitter_template)
 __3. Parcel & Preview__
 
 
-```{r}, eval = FALSE
+```{r, eval = FALSE}
 
   parcel <- parcel_create(df,
               sender_name = "Lucy",

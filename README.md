@@ -1,5 +1,5 @@
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/ropenscilabs/notifier/master.svg)](https://codecov.io/github/ropenscilabs/notifier?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/ropenscilabs/ponyexpress/master.svg)](https://codecov.io/github/ropenscilabs/ponyexpress?branch=master)
 
 ponyexpress 🐴
 =============
@@ -9,7 +9,11 @@ This package builds on the `gmailr` package and code from Jenny Bryan to automat
 Install
 -------
 
-`{r}, eval = FALSE # Obtain the the development version from GitHub: # install.packages("devtools") devtools::install_github("ropenscilabs/ponyexpress")`
+``` r
+# Obtain the the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("ropenscilabs/ponyexpress")
+```
 
 Functionality
 -------------
@@ -69,12 +73,15 @@ our_template <- glue::glue(glitter_template)
 
 **3. Parcel & Preview**
 
-\`\`\`{r}, eval = FALSE
+``` r
+  parcel <- parcel_create(df,
+              sender_name = "Lucy",
+              sender_email = "lucydagostino@gmail.com",
+              subject = "Happy email!",
+              template = rich_template)
 
-parcel &lt;- parcel\_create(df, sender\_name = "Lucy", sender\_email = <%22lucydagostino@gmail.com%22>, subject = "Happy email!", template = rich\_template)
-
-parcel\_preview(parcel)
-\`\`\`
+ parcel_preview(parcel)            
+```
 
 **4. Send**
 
