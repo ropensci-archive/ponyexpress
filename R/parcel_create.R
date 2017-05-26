@@ -41,9 +41,10 @@ parcel_create <- function(df,
   if (is.null(df) || is.null(sender_name) || is.null(sender_email) || is.null(template)) {
     stop("You must supply a value for: df, sender_name, sender_email, and template")
   }
+
   valid_emails <- length(stringr::str_match(df$email, "^[[:alnum:].-_]+@[[:alnum:].-]+$"))
   if(valid_emails != nrow(df)) {
-    stop("Found some invalid email addresses")
+    stop("Found some invalid email addresses \n")
   }
   email <- df
   email$To <- glue::glue_data(df,"{name} <{email}>")

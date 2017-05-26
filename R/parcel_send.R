@@ -24,21 +24,25 @@ parcel_send <-
            type = "text",
            secret = NULL,
            sent = "sent-emails.rds") {
-    emails <- NULL
+
     subject <- NULL
 
-    if(type == "text") {
-        names(edat)[which(names(edat) == "Body")] = "text_body"
-    }
     if(type == "html") {
-        names(edat)[which(names(edat) == "Body")] = "html_body"
+        names(edat)[which(names(edat) == "body")] = "html_body"
     }
   if(!is.null(secret)) {
     gmailr::use_secret_file(secret)
   }
-    safe_send_message <- purrr::safely(send_message)
-    sent_mail <- purrr::map(emails, safe_send_message)
 
-    saveRDS(sent_mail,
-            paste(gsub("\\s+", "_", subject), "sent-emails.rds", sep = "_"))
+    emails <- purrr::pmap(edat, gmailr::mime)
+    safe_send_message <- purrr::safely(gmailr::send_message)
+    sent_mail <- purrr::map(emails, safe_send_message)
+    error_list <- gmail_errors(sent_mail)
+    saveRDS(sent_mail,paste(gsub("\\s+", "_", subject), sent , sep = "_"))
   }
+
+# @noRd
+#' @internal
+error_list <- function(x) {
+
+}
