@@ -4,8 +4,7 @@
 \alias{parcel_send}
 \title{Sends email from notifier object}
 \usage{
-parcel_send(edat, type = "text", secret, errors = "errors.csv",
-  sent = "sent-emails.rds")
+parcel_send(edat, type = "text", secret = NULL, sent = "sent-emails.rds")
 }
 \arguments{
 \item{edat}{tibble outputted from note_create}
@@ -13,8 +12,6 @@ parcel_send(edat, type = "text", secret, errors = "errors.csv",
 \item{type}{Type of email. Either text or html.}
 
 \item{secret}{path to secret.json file}
-
-\item{errors}{Path for file to record error messages}
 
 \item{sent}{Path for sent emails to be saved. You will need this later as a log of sent emails.}
 }

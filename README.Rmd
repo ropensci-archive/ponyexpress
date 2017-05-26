@@ -2,9 +2,12 @@
 output: github_document
 ---
 
-# ponyexpress
+[![Coverage Status](https://img.shields.io/codecov/c/github/ropenscilabs/notifier/master.svg)](https://codecov.io/github/ropenscilabs/notifier?branch=master)
 
-Package sends email notifications from a sheet (local csv, Excel, or Googlesheet) that contains, at the very least a name and email a ddress. A message can be formatted using nice templates using the `glue` package.
+# ponyexpress 🐴
+
+This package builds on the `gmailr` package and code from Jenny Bryan to automate sendining Gmail from R with data from a spreadsheet (local csv, Excel sheet, or a Google sheet). With nothing more than a list of names and email addresses, you can send templated emails (grades, conference acceptances etc)
+
 
 ## Functionality
 
@@ -13,3 +16,51 @@ Package sends email notifications from a sheet (local csv, Excel, or Googlesheet
 - `parcel_send()` - Send the emails
 
 ![](http://rs181.pbsrc.com/albums/x148/brandi47_2007/4942733.gif~c200)
+
+
+## Example
+
+1. Read in data frame
+
+```{r}
+ df <- data.frame(
+    name = c("Lucy", "Karthik"),
+    email = c("ld.mcgowan@vanderbilt.edu", "kram@berkeley.edu")
+  )
+  df
+```
+
+
+  2. Template up
+
+  
+```{r}
+library(ponyexpress)
+   template <- "Dear {name},
+
+   This is a friendly email from me.
+
+   XO,
+   Lucy"
+```
+
+   3. Parcel & Preview
+
+```{r}
+
+  parcel <- parcel_create(df,
+              sender_name = "Lucy",
+              sender_email = "lucydagostino@gmail.com",
+              subject = "Happy email!",
+              template = template)
+
+ parcel_preview(parcel)            
+```
+
+4. Send
+
+```{r, eval = FALSE}
+parcel_send(parcel)
+```
+
+![](https://i.imgur.com/Ij60FhR.gif)

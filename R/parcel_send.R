@@ -3,7 +3,6 @@
 #' @param secret path to secret.json file
 #' @param edat tibble outputted from note_create
 #' @param type Type of email. Either text or html.
-#' @param errors Path for file to record error messages
 #' @param sent Path for sent emails to be saved. You will need this later as a log of sent emails.
 #'
 #'@importFrom gmailr send_message
@@ -23,8 +22,7 @@
 parcel_send <-
   function(edat,
            type = "text",
-           secret,
-           errors = "errors.csv",
+           secret = NULL,
            sent = "sent-emails.rds") {
     emails <- NULL
     subject <- NULL
@@ -35,8 +33,9 @@ parcel_send <-
     if(type == "html") {
         names(edat)[which(names(edat) == "Body")] = "html_body"
     }
-
+  if(!is.null(secret)) {
     gmailr::use_secret_file(secret)
+  }
     safe_send_message <- purrr::safely(send_message)
     sent_mail <- purrr::map(emails, safe_send_message)
 
