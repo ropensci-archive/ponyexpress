@@ -18,7 +18,7 @@
 #'Subject = "This is the subject",
 #' Body = "This is the message")
 #' # Now send emails with
-#' note_send(sample_email, secret)
+#' \dontrun{parcel_send(sample_email, secret)}
 parcel_send <-
   function(edat,
            type = "text",
@@ -30,7 +30,6 @@ parcel_send <-
   if(!is.null(secret)) {
     gmailr::use_secret_file(secret)
   }
-inst
     mime2 <- function(To, From, Subject, body) {
     z <- gmailr::mime(to = To, from = From, subject = Subject)
     body <- gsub("\n", "<br>", body)

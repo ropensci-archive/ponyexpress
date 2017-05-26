@@ -27,5 +27,5 @@ From = c("Karthik Ram <karthik.ram@gmail.com>"),
 Subject = "This is the subject",
 Body = "This is the message")
 # Now send emails with
-note_send(sample_email, secret)
+\dontrun{parcel_send(sample_email, secret)}
 }
