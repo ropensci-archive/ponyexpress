@@ -27,14 +27,16 @@ parcel_send <-
 
     subject <- NULL
 
-    if(type == "html") {
-        names(edat)[which(names(edat) == "body")] = "html_body"
-    }
   if(!is.null(secret)) {
     gmailr::use_secret_file(secret)
   }
-
-    emails <- purrr::pmap(edat, gmailr::mime)
+inst
+    mime2 <- function(To, From, Subject, body) {
+    z <- gmailr::mime(to = To, from = From, subject = Subject)
+    body <- gsub("\n", "<br>", body)
+    gmailr::html_body(z, body = body)
+    }
+    emails <- purrr::pmap(edat, mime2)
     safe_send_message <- purrr::safely(gmailr::send_message)
     sent_mail <- purrr::map(emails, safe_send_message)
     error_list <- gmail_errors(sent_mail)
@@ -42,7 +44,7 @@ parcel_send <-
   }
 
 # @noRd
-#' @internal
-error_list <- function(x) {
-
+gmail_errors <- function(x) {
+# Soon we will catch and processs errrors
+NULL
 }
