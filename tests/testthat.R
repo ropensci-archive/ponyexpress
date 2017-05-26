@@ -1,4 +1,4 @@
 library(testthat)
-library(notifier)
+library(ponyexpress)
 
-test_check("notifier")
+test_check("ponyexpress")
