@@ -10,11 +10,12 @@ parcel_preview <- function(email = NULL) {
   if (!inherits(email, "parcel")){
     stop("`email` must be of class `parcel` (see `parcel_create()`)")
   }
-  body <- email[[1]]$body
+  body <- email$body[1]
+  body <- gsub("\n", "<br>", body)
   x <- tempfile(pattern = "file", tmpdir = tempdir(), fileext = ".html")
-  file_con <- file(x)
-  writeLines(body, file_con)
-  close(file_con)
+  sink(x)
+  cat(body)
+  sink()
   utils::browseURL(x)
 }
 
