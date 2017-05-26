@@ -18,7 +18,7 @@ Functionality
 Example
 -------
 
-1.  Read in data frame
+**1. Read in data frame**
 
 ``` r
  df <- data.frame(
@@ -32,7 +32,7 @@ Example
     ## 1    Lucy ld.mcgowan@vanderbilt.edu
     ## 2 Karthik         kram@berkeley.edu
 
-1.  Template up
+**2. Template up**
 
 ``` r
 library(ponyexpress)
@@ -44,7 +44,7 @@ library(ponyexpress)
    Lucy"
 ```
 
-1.  Parcel & Preview
+**3. Parcel & Preview**
 
 ``` r
   parcel <- parcel_create(df,
@@ -56,7 +56,7 @@ library(ponyexpress)
  parcel_preview(parcel)            
 ```
 
-1.  Send
+**4. Send**
 
 ``` r
 parcel_send(parcel)

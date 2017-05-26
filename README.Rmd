@@ -20,7 +20,7 @@ This package builds on the `gmailr` package and code from Jenny Bryan to automat
 
 ## Example
 
-1. Read in data frame
+__1. Read in data frame__
 
 ```{r}
  df <- data.frame(
@@ -31,7 +31,7 @@ This package builds on the `gmailr` package and code from Jenny Bryan to automat
 ```
 
 
-  2. Template up
+__2. Template up__
 
   
 ```{r}
@@ -44,7 +44,7 @@ library(ponyexpress)
    Lucy"
 ```
 
-   3. Parcel & Preview
+__3. Parcel & Preview__
 
 ```{r}
 
@@ -57,7 +57,7 @@ library(ponyexpress)
  parcel_preview(parcel)            
 ```
 
-4. Send
+__4. Send__
 
 ```{r, eval = FALSE}
 parcel_send(parcel)
