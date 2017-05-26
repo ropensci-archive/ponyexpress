@@ -5,3 +5,6 @@
 ^codecov\.yml$
 ^README\.Rmd$
 ^README-.*\.png$
+^.*\.rds$
+^.*\.json$
+.httr-oauth
