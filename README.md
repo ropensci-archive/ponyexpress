@@ -62,6 +62,8 @@ rich_template <- "Dear {name},
    Lucy"
  
  # Or use one of our templates!
+ # Save your text as an object named "body"
+ # then use glue!
 body <- "Dear {name},
 
    This is a friendly email from me.
