@@ -1,4 +1,4 @@
-Package: notifier
+Package: ponyexpress
 Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
@@ -9,6 +9,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   gmailr,
+  glue,
   purrr,
   magrittr
 Suggests: covr,
@@ -17,8 +18,3 @@ Suggests: covr,
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
-<<<<<<< HEAD
-Imports: gmailr,
-    glue
-=======
->>>>>>> Updated local build
