@@ -6,6 +6,7 @@
 #' @param subject character, the email's subject
 #' @param bcc character, email address to bcc
 #' @param template character, template for email, using glue syntax (see example)
+#' @importFrom stringr str_match
 #'
 #' @return data frame with information to email
 #'
@@ -36,8 +37,13 @@ parcel_create <- function(df,
                         subject = NULL,
                         bcc = NULL,
                         template = NULL) {
+  emails <- NULL
   if (is.null(df) || is.null(sender_name) || is.null(sender_email) || is.null(template)) {
     stop("You must supply a value for: df, sender_name, sender_email, and template")
+  }
+  valid_emails <- length(stringr::str_match(df$email, "^[[:alnum:].-_]+@[[:alnum:].-]+$"))
+  if(valid_emails != nrow(df)) {
+    stop("Found some invalid email addresses")
   }
   email <- df
   email$To <- glue::glue_data(df,"{name} <{email}>")

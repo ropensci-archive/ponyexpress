@@ -11,6 +11,7 @@ Imports:
   gmailr,
   glue,
   purrr,
+  stringr,
   magrittr
 Suggests: covr,
     testthat,
