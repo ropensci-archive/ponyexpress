@@ -9,3 +9,4 @@
 ^.*\.json$
 .httr-oauth
 ^sandbox$
+^data-raw$

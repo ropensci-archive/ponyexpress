@@ -36,7 +36,7 @@ __2. Template up__
   
 ```{r}
 library(ponyexpress)
- emplate <- "Dear {name},
+template <- "Dear {name},
 
    This is a friendly email from me.
 
@@ -52,6 +52,14 @@ rich_template <- "Dear {name},
    XO,
    Lucy"
  
+ # Or use one of our templates!
+body <- "Dear {name},
+
+   This is a friendly email from me.
+  \\<img src='http://bukk.it/wut.jpg'>
+   XO,
+   Lucy"
+our_template <- glue::glue(glitter_template)
 ```
 
 __3. Parcel & Preview__
