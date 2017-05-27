@@ -4,10 +4,11 @@
 \alias{parcel_send}
 \title{Sends email from notifier object}
 \usage{
-parcel_send(edat, type = "text", secret = NULL, sent = "sent-emails.rds")
+parcel_send(email_data, type = "text", secret = NULL,
+  sent = "sent-emails.rds")
 }
 \arguments{
-\item{edat}{tibble outputted from note_create}
+\item{email_data}{tibble outputted from note_create}
 
 \item{type}{Type of email. Either text or html.}
 
