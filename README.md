@@ -4,7 +4,7 @@
 ponyexpress 🐴
 =============
 
-This package builds on the `gmailr` package and code from Jenny Bryan to automate sendining Gmail from R with data from a spreadsheet (local csv, Excel sheet, or a Google sheet). With nothing more than a list of names and email addresses, you can send templated emails (grades, conference acceptances etc)
+This package builds on the `gmailr` package and code from Jenny Bryan to automate sending Gmail from R with data from a spreadsheet (local csv, Excel sheet, or a Google sheet). With nothing more than a list of names and email addresses, you can send templated emails (grades, conference acceptances etc)
 
 Install
 -------
